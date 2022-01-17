@@ -1,0 +1,13 @@
+web\LogInTest.class
+beans\Creator.class
+beans\Recipe.class
+web\LogInServlet.class
+Logic\RecipesLogic.class
+beans\Products.class
+web\testClass.class
+web\UserServlet.class
+Main.class
+beans\User.class
+Logic\UserLogic.class
+Logic\LoginLogic.class
+web\RecipesServlet.class
