@@ -2,6 +2,7 @@ package web;
 
 
 import Logic.LoginLogic;
+import beans.LoggedInUser;
 import beans.User;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -14,15 +15,9 @@ public class LogInServlet {
 
 
     @GET
-    public String logIn(@QueryParam("loginName") String logInName, @QueryParam("password") String password){
-        try {
-            if(logIn.logIn(logInName, password)) return "true";
+    public LoggedInUser logIn(@QueryParam("loginName") String logInName, @QueryParam("password") String password){
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return "false";
+        return logIn.logIn(logInName, password);
     }
 
     @GET
