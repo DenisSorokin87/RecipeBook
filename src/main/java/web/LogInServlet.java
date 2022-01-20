@@ -2,8 +2,8 @@ package web;
 
 
 import Logic.LoginLogic;
+import beans.LogInResponse;
 import beans.LoggedInUser;
-import beans.User;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
@@ -14,11 +14,12 @@ public class LogInServlet {
     private final LoginLogic logIn = new LoginLogic();
 
 
+
     @GET
-    public LoggedInUser logIn(@QueryParam("loginName") String logInName, @QueryParam("password") String password){
+    public LogInResponse logIn(@QueryParam("loginName") String logInName, @QueryParam("password") String password) throws Exception {
 
         return logIn.logIn(logInName, password);
-    }
+        }
 
     @GET
     @Path("/checkIfExist")

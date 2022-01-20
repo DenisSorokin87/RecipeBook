@@ -1,20 +1,16 @@
 package Logic;
 
-import beans.LoggedInUser;
-import beans.User;
-import beans.Creator;
+import beans.*;
 
 public class LoginLogic {
-
-    public LoggedInUser logIn(String userLoginName, String password) {
-
-        for(User user : Creator.usersList) {
-            if (user.getLoginName().equals(userLoginName) && user.getPassword().equals(password)) {
-                return new LoggedInUser(user.getUserId(), user.getName());
-
+    private final Creator creator = Creator.getInstance();
+    public LogInResponse logIn(String userLoginName, String password){
+        for(User user : creator.getUsersList()){
+            if(user.getLoginName().equals(userLoginName) && user.getPassword().equals(password)){
+                return new LogInResponse(new LoggedInUser(user.getUserId(), user.getName()+" "+user.getLastName()), LoginStatus.SUCCESS.toString());
             }
         }
-        return new LoggedInUser();
+        return new LogInResponse("Login Faild, check Your Details", LoginStatus.FAILED.toString());
     }
 
     public Boolean checkIfLoginNameExist(String loginName) {

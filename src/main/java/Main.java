@@ -8,7 +8,9 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Creator creator = Creator.getInstance();
+       Creator.getInstance().getUsersList();
+
+        System.out.println( Creator.getInstance().getUsersList().toString());
     }
 
 }

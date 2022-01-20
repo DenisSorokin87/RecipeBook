@@ -1,30 +1,31 @@
 package beans;
 
 public class LoggedInUser {
-    private int id;
-    private String userName;
+
+    private int userId;
+    private String displayName;
 
     public LoggedInUser() {
     }
 
-    public LoggedInUser(int id, String userName) {
-        this.id = id;
-        this.userName = userName;
+    public LoggedInUser(int userId, String displayName) {
+        this.userId = userId;
+        this.displayName = displayName;
     }
 
-    public int getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 }
