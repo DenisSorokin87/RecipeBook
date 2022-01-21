@@ -1,5 +1,6 @@
 package Logic;
 
+import beans.CallResponse;
 import beans.Recipe;
 import beans.User;
 import beans.Creator;
@@ -13,7 +14,7 @@ public class UserLogic {
     public String createUser(User user){
         for(User userElement : Creator.usersList){
             if(Objects.equals(userElement.getLoginName(), user.getLoginName())){
-                return "User With this Login Is already Exist";
+                return new CallResponse()
             }
         }
             user.setUserId(generateUserId());

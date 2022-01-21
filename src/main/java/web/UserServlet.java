@@ -2,11 +2,13 @@ package web;
 
 
 import Logic.UserLogic;
+import beans.CallResponse;
 import beans.Recipe;
 import beans.User;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.Calendar;
 import java.util.List;
 
 @Path("/user")
@@ -33,7 +35,7 @@ public class UserServlet {
 
     @POST
     @Path("/createUser")
-    public String createNewUser(User user){
+    public CallResponse createNewUser(User user){
         return userLogic.createUser(user);
     }
 }
