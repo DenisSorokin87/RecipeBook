@@ -1,8 +1,7 @@
 package Logic;
 
-import beans.Recipe;
-import beans.User;
-import beans.Creator;
+import beans.*;
+import jdk.jshell.Snippet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,21 +9,21 @@ import java.util.Objects;
 
 public class UserLogic {
 
-    public String createUser(User user){
+    public CallResponse createUser(User user){
         for(User userElement : Creator.usersList){
             if(Objects.equals(userElement.getLoginName(), user.getLoginName())){
-                return "User With this Login Is already Exist";
+                return new CallResponse(Status.FAILED.toString(), "User with this LoginName already exist");
             }
         }
             user.setUserId(generateUserId());
-            user.setRecipeList(new ArrayList<>());
+//            user.setRecipeList(new ArrayList<>());
             try {
                 Creator.usersList.add(user);
             }catch (Exception e){
-                return "Something Went Wrong";
+                return new CallResponse(Status.FAILED.toString(), e.getMessage());
             }
 
-        return "User Created";
+        return new CallResponse(Status.SUCCESS.toString(), "User was Creates Successfully");
     }
 
     private int generateUserId() {

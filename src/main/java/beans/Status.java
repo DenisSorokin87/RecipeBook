@@ -1,6 +1,6 @@
 package beans;
 
-public enum LoginStatus {
+public enum Status {
     SUCCESS,
     FAILED
 }
