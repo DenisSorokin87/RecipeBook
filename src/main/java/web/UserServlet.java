@@ -2,6 +2,7 @@ package web;
 
 
 import Logic.UserLogic;
+import beans.CallResponse;
 import beans.Recipe;
 import beans.User;
 import jakarta.ws.rs.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserServlet {
     private UserLogic userLogic = new UserLogic();
+
 
     @GET
     @Path("/{userId}")
@@ -33,7 +35,7 @@ public class UserServlet {
 
     @POST
     @Path("/createUser")
-    public String createNewUser(User user){
+    public CallResponse createNewUser(User user){
         return userLogic.createUser(user);
     }
 }
