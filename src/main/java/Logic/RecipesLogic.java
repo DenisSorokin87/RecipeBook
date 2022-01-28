@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipesLogic {
+    Creator creator = Creator.getInstance();
 
     public List<Recipe> getRecipeByType(String type){
         ArrayList<Recipe> recipes = new ArrayList<>();
@@ -33,5 +34,9 @@ public class RecipesLogic {
         int lastIndex = Creator.recipesList.size()-1;
         int lastRecipeId = Creator.recipesList.get(lastIndex).getRecipeId();
         return lastRecipeId + 1;
+    }
+
+    public ArrayList<Recipe> getAllRecipes() {
+        return Creator.recipesList;
     }
 }
