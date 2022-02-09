@@ -8,13 +8,12 @@ import java.util.ArrayList;
 public class LoginLogic {
     private final Creator creator = Creator.getInstance();
     public GenericResponse<LoggedInUser> logIn(String userLoginName, String password){
-        for(User user : creator.getUsersList().getData()){
+        for(User user : creator.getUsersList().getDataList()){
             if(user.getLoginName().equals(userLoginName) && user.getPassword().equals(password)){
                 return new GenericResponse<LoggedInUser>(Status.SUCCESS.name(), "Login Made", createLoggedInUserArray(user));
             }
         }
-        return new GenericResponse<>(Status.SUCCESS.name(), "LogIn Faild", new ArrayList<>() {
-        });
+        return new GenericResponse<>(Status.SUCCESS.name(), "LogIn Faild", null);
     }
 
     private ArrayList<LoggedInUser> createLoggedInUserArray(User user) {

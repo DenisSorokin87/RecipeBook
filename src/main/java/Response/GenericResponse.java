@@ -2,19 +2,19 @@ package Response;
 
 import java.util.List;
 
-public class GenericResponse<T> {
+public class GenericResponse<E> {
 
     private String status;
     private String msg;
-    private List<T> data;
+    private List<E> dataList;
 
     public GenericResponse() {
     }
 
-    public GenericResponse(String status, String msg, List<T> data) {
+    public GenericResponse(String status, String msg, List<E> dataList) {
         this.status = status;
         this.msg = msg;
-        this.data = data;
+        this.dataList = dataList;
     }
 
     public String getStatus() {
@@ -33,11 +33,11 @@ public class GenericResponse<T> {
         this.msg = msg;
     }
 
-    public List<T> getData() {
-        return data;
+    public List<E> getDataList() {
+        return dataList;
     }
 
-    public void setData(List<T> data) {
-        this.data = data;
+    public void setDataList(List<E> dataList) {
+        this.dataList = dataList;
     }
 }

@@ -40,6 +40,6 @@ public class RecipesLogic {
     }
 
     public GenericResponse<Recipe> getAllRecipes() {
-        return new GenericResponse<Recipe>(Status.SUCCESS.name(), "", Creator.recipesList);
+        return new GenericResponse<Recipe>(Status.SUCCESS.name(), "All Recipe List", Creator.recipesList);
     }
 }
