@@ -7,17 +7,19 @@ public class Recipe {
     private String type;
     private String description;
     private String dishName;
-    private List<Products> productsList;
+    private List<Ingredient> productsList;
+    private List<CookingProcess> cookingProcessList;
     private String dishPhotoUrl;
 
     public Recipe(){}
 
-    public Recipe(int id, String type, String description, String dishName, List<Products> productsList, String dishPhotoUrl) {
-        this.recipeId = id;
+    public Recipe(int recipeId, String type, String description, String dishName, List<Ingredient> productsList, List<CookingProcess> cookingProcessList, String dishPhotoUrl) {
+        this.recipeId = recipeId;
         this.type = type;
         this.description = description;
         this.dishName = dishName;
         this.productsList = productsList;
+        this.cookingProcessList = cookingProcessList;
         this.dishPhotoUrl = dishPhotoUrl;
     }
 
@@ -53,12 +55,20 @@ public class Recipe {
         this.dishName = dishName;
     }
 
-    public List<Products> getProductsList() {
+    public List<Ingredient> getProductsList() {
         return productsList;
     }
 
-    public void setProductsList(List<Products> productsList) {
+    public void setProductsList(List<Ingredient> productsList) {
         this.productsList = productsList;
+    }
+
+    public List<CookingProcess> getCookingProcessList() {
+        return cookingProcessList;
+    }
+
+    public void setCookingProcessList(List<CookingProcess> cookingProcessList) {
+        this.cookingProcessList = cookingProcessList;
     }
 
     public String getDishPhotoUrl() {
