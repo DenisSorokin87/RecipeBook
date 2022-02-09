@@ -1,16 +1,26 @@
 package Logic;
 
+import Response.GenericResponse;
 import beans.*;
+
+import java.util.ArrayList;
 
 public class LoginLogic {
     private final Creator creator = Creator.getInstance();
-    public LogInResponse logIn(String userLoginName, String password){
-        for(User user : creator.getUsersList()){
+    public GenericResponse<LoggedInUser> logIn(String userLoginName, String password){
+        for(User user : creator.getUsersList().getData()){
             if(user.getLoginName().equals(userLoginName) && user.getPassword().equals(password)){
-                return new LogInResponse(new LoggedInUser(user.getUserId(), user.getName()+" "+user.getLastName()), Status.SUCCESS.toString());
+                return new GenericResponse<LoggedInUser>(Status.SUCCESS.name(), "Login Made", createLoggedInUserArray(user));
             }
         }
-        return new LogInResponse("Login Faild, check Your Details", Status.FAILED.toString());
+        return new GenericResponse<>(Status.SUCCESS.name(), "LogIn Faild", new ArrayList<>() {
+        });
+    }
+
+    private ArrayList<LoggedInUser> createLoggedInUserArray(User user) {
+        ArrayList<LoggedInUser> responseArray= new ArrayList<>();
+        responseArray.add(new LoggedInUser(user.getUserId(), user.getName() + " " + user.getLastName()));
+        return responseArray;
     }
 
     public Boolean checkIfLoginNameExist(String loginName) {

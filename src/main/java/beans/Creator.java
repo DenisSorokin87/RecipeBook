@@ -1,5 +1,7 @@
 package beans;
 
+import Response.GenericResponse;
+
 import java.util.ArrayList;
 
 public class Creator {
@@ -83,8 +85,8 @@ public class Creator {
 
     }
 
-    public ArrayList<User> getUsersList() {
-        return usersList;
+    public GenericResponse<User> getUsersList() {
+        return new GenericResponse<User>(Status.SUCCESS.name(), "user list", usersList);
     }
 
     public void setUsersList(ArrayList<User> usersList) {

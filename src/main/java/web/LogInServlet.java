@@ -2,7 +2,7 @@ package web;
 
 
 import Logic.LoginLogic;
-import beans.LogInResponse;
+import Response.GenericResponse;
 import beans.LoggedInUser;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -16,7 +16,7 @@ public class LogInServlet {
 
 
     @GET
-    public LogInResponse logIn(@QueryParam("loginName") String logInName, @QueryParam("password") String password) throws Exception {
+    public GenericResponse<LoggedInUser> logIn(@QueryParam("loginName") String logInName, @QueryParam("password") String password) throws Exception {
 
         return logIn.logIn(logInName, password);
         }

@@ -1,12 +1,10 @@
 package web;
 
+import Response.GenericResponse;
 import beans.User;
 import beans.Creator;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Path("/check")
 @Produces(MediaType.APPLICATION_JSON)
@@ -17,7 +15,7 @@ public class LogInTest {
 
 
     @GET
-    public ArrayList<User> getUsers() {
+    public GenericResponse<User> getUsers() {
 
         return userCreator.getUsersList();
     }

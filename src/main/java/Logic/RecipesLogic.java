@@ -1,7 +1,10 @@
 package Logic;
 
+import Response.GenericResponse;
 import beans.Recipe;
 import beans.Creator;
+import beans.Status;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +39,7 @@ public class RecipesLogic {
         return lastRecipeId + 1;
     }
 
-    public ArrayList<Recipe> getAllRecipes() {
-        return Creator.recipesList;
+    public GenericResponse<Recipe> getAllRecipes() {
+        return new GenericResponse<Recipe>(Status.SUCCESS.name(), "", Creator.recipesList);
     }
 }

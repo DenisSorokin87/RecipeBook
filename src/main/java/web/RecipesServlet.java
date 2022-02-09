@@ -2,12 +2,11 @@ package web;
 
 
 import Logic.RecipesLogic;
+import Response.GenericResponse;
 import beans.Recipe;
-import beans.User;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Path("/recipe")
@@ -18,7 +17,7 @@ public class RecipesServlet {
     private final RecipesLogic recipesLogic = new RecipesLogic();
 
     @GET
-    public ArrayList<Recipe> getAllRecipes(){
+    public GenericResponse<Recipe> getAllRecipes(){
         return recipesLogic.getAllRecipes();
     }
 
