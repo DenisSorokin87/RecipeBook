@@ -13,7 +13,7 @@ public class LoginLogic {
                 return new GenericResponse<LoggedInUser>(Status.SUCCESS.name(), "Login Made", createLoggedInUserArray(user));
             }
         }
-        return new GenericResponse<>(Status.SUCCESS.name(), "LogIn Faild", null);
+        return new GenericResponse<>(Status.FAILED.name(), "LogIn Failed", null);
     }
 
     private ArrayList<LoggedInUser> createLoggedInUserArray(User user) {

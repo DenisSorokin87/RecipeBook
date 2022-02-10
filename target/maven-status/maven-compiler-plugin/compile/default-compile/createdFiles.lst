@@ -3,7 +3,6 @@ beans\Creator.class
 beans\Recipe.class
 web\LogInServlet.class
 Logic\RecipesLogic.class
-beans\Products.class
 web\testClass.class
 web\UserServlet.class
 Main.class
